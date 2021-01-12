@@ -1,8 +1,8 @@
 /*
  * @Author: 庞泽邦
  * @Date: 2020-08-28 16:39:48
- * @Last Modified by: 杨志杰
- * @Last Modified time: 2021-01-07 10:30
+ * @Last Modified by: 吴晓斌
+ * @Last Modified time: 2021-01-12 10:16:36
  */
 //  教师端我的页面--工具组件
 <template>
@@ -11,7 +11,7 @@
     <van-grid :column-num="4" :border="false">
       <van-grid-item @click.stop="changeView('/replyHealthyAsk')">
         <template #icon>
-          <van-icon slot="icon" class-prefix="old-icon" name="yijianfankui" size="30"/>
+          <van-icon slot="icon" class-prefix="old-icon" name="yijianfankui" size="30" />
         </template>
         <template #text>
           <div class="gird_item--text">诊断回复</div>

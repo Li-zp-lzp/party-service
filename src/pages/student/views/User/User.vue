@@ -1,8 +1,8 @@
 /*
  * @Author: 庞泽邦
  * @Date: 2020-05-02 17:45:54
- * @Last Modified by: 庞泽邦
- * @Last Modified time: 2020-10-14 13:13:30
+ * @Last Modified by: 吴晓斌
+ * @Last Modified time: 2021-01-12 10:15:43
  */
 //用户中心页面
 <template>
@@ -89,7 +89,7 @@ export default {
 @import '@/scss/_settings.scss';
 .user_wrap--container {
   background: $bg;
-  height: 100vh;
+  min-height: 100vh;
   user-select: none;
 }
 </style>
