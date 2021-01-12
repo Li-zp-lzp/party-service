@@ -2,6 +2,14 @@
   <div class="tools_wrap--container">
     <div style="font-size: 12px;color: #676767;">我的工具</div>
     <van-grid :column-num="4" :border="false">
+      <van-grid-item @click.stop="changeView('/askHealthy')">
+        <template #icon>
+          <van-icon slot="icon" class-prefix="old-icon" name="jiankang" size="30" />
+        </template>
+        <template #text>
+          <div class="gird_item--text">寻医问诊</div>
+        </template>
+      </van-grid-item>
       <van-grid-item @click.stop="changeView('/personalAttendance')">
         <template #icon>
           <van-icon slot="icon" class-prefix="old-icon" name="kaoqin" size="30" />
@@ -32,14 +40,6 @@
         </template>
         <template #text>
           <div class="gird_item--text">课堂进度</div>
-        </template>
-      </van-grid-item>
-      <van-grid-item @click.stop="changeView('/askHealthy')">
-        <template #icon>
-          <van-icon slot="icon" class-prefix="old-icon" name="jiankang" size="30"/>
-        </template>
-        <template #text>
-          <div class="gird_item--text">在线问诊</div>
         </template>
       </van-grid-item>
       <van-grid-item @click.stop="changeView('/myActivity')">
