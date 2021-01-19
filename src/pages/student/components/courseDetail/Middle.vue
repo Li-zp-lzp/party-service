@@ -1,20 +1,21 @@
 /*
 * @Author: 杨志杰
 * @Date: 2020-05-05 18:35:11
- * @Last Modified by: 庞泽邦
- * @Last Modified time: 2020-11-08 14:04:55
+ * @Last Modified by: 吴晓斌
+ * @Last Modified time: 2021-01-13 17:00:01
 */
 //课程详细信息组件
 <template>
   <div class="courseDetail_container">
-    <div class="courseImage--container">
+    <!-- <div class="courseImage--container">
       <van-image
         class="courseImage--image"
         width="100%"
         height="100%"
         :src="courseInfo.courseImgUrl"
       />
-    </div>
+    </div> -->
+    <public-video :video-url="videoUrl" />
     <div class="courseMessage--container">
       <div class="courseMessage--courseName">{{ courseInfo.courseName }}</div>
       <div class="courseMessage--startTime">
@@ -39,15 +40,25 @@
 <script>
 import Vue from 'vue'
 import { Image as VanImage } from 'vant'
+import Video from '@/components/Video'
 Vue.use(VanImage)
 
 export default {
   name: 'CourseDetailMiddle',
+  components: {
+    'public-video': Video
+  },
   props: {
     courseInfo: {
       type: Object,
       default: () => {
         return {}
+      }
+    },
+    videoUrl: {
+      type: String,
+      default: () => {
+        return ''
       }
     }
   }
@@ -59,7 +70,6 @@ export default {
   @import '@/scss/_settings.scss';
 
   .courseDetail_container {
-    height: 325px;
     width: 100%;
 
     .courseImage {
@@ -72,7 +82,6 @@ export default {
     .courseMessage {
       &--container {
         width: 100%;
-        height: 135 - 16px;
         padding: {
           top: 16px;
           left: 20px;

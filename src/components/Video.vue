@@ -2,7 +2,7 @@
  * @Author: 庞泽邦
  * @Date: 2020-05-21 11:25:41
  * @Last Modified by: 吴晓斌
- * @Last Modified time: 2021-01-05 10:25:54
+ * @Last Modified time: 2021-01-13 10:59:58
  */
 //视频播放组件
 <template>
@@ -32,6 +32,13 @@ videojs.addLanguage('zh-CN', video_zhCN)
 videojs.addLanguage('en', video_en)
 export default {
   name: 'Video',
+  props: {
+    videoUrl: {
+      type: String,
+      default: () => { return '' },
+      required: true
+    }
+  },
   data: () => {
     return {
       player: null
@@ -95,7 +102,8 @@ export default {
             //   type: 'video/mp4'
             // },
             {
-              src: 'https://video.699pic.com/videos/79/40/23/b_3yRDmjbaixNE1585794023_10s.mp4',
+              src: this.videoUrl,
+              // src: 'https://video.699pic.com/videos/79/40/23/b_3yRDmjbaixNE1585794023_10s.mp4',
               // type必须要与视频源一致否则在ios端会出现无法解析的问题
               type: 'video/mp4'
             }

@@ -2,7 +2,7 @@
  * @Author: 庞泽邦
  * @Date: 2020-05-01
  * @Last Modified by: 吴晓斌
- * @Last Modified time: 2021-01-06 10:11:56
+ * @Last Modified time: 2021-01-13 11:07:09
  */
 //学生端首页页面
 <template>
@@ -24,7 +24,11 @@
         </van-col>
       </van-row>
     </van-sticky>
-    <public-video />
+    <div style="height:54px" />
+    <div style="text-align:center; padding: 15px 0; background-color: white;">
+      <div style="font-size:16px;">北京师范大学微课教学研究中心</div>
+    </div>
+    <public-video :video-url="videoUrl" />
     <!-- <div class="swipr_wrap--container">
       <van-swipe :autoplay="3000" height="155" indicator-color="#6C6C6C" stop-propagation>
         <van-swipe-item v-for="(image, index) in images" :key="index">
@@ -46,7 +50,7 @@
 
 <script>
 import Vue from 'vue'
-import { Col, Row, Search, Swipe, SwipeItem, Lazyload, Image as VanImage, Sticky, Icon, NoticeBar } from 'vant'
+import { Col, Row, Search, Swipe, SwipeItem, Lazyload, Image as VanImage, Sticky, Icon, NavBar, NoticeBar } from 'vant'
 import Video from '@/components/Video'
 import communityService from '../../components/Home/communityService'
 import communityActivity from '../../components/Home/communityActivity'
@@ -62,6 +66,7 @@ Vue.use(Col)
   .use(Sticky)
   .use(Icon)
   .use(NoticeBar)
+  .use(NavBar)
 export default {
   name: 'Home',
   components: {
@@ -77,6 +82,7 @@ export default {
         'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2255943622,3958558387&fm=26&gp=0.jpg',
         'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2957527148,755216491&fm=26&gp=0.jpg'
       ],
+      videoUrl: 'https://video.699pic.com/videos/79/40/23/b_3yRDmjbaixNE1585794023_10s.mp4',
       girdItem: []
     }
   },
