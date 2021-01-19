@@ -1,8 +1,8 @@
 /*
  * @Author: 庞泽邦
  * @Date: 2020-05-05 14:07:20
- * @Last Modified by: 庞泽邦
- * @Last Modified time: 2020-11-25 21:54:05
+ * @Last Modified by: 吴晓斌
+ * @Last Modified time: 2021-01-13 17:11:26
  */
 //选课页普通课程组件
 <template>
@@ -65,7 +65,7 @@
 <script>
 import Vue from 'vue'
 import { Cell, CellGroup, Card, Button, List, PullRefresh, Empty } from 'vant'
-import { getCeramicsCourse, getCalligraphyCourse, getPaintingCourse, getMorePopularCourse } from '@/api/student/select'
+import { getCeramicsCourse, getCalligraphyCourse, getMorePopularCourse } from '@/api/student/select'
 import RefreshLoading from '@/components/SVG/RefreshLoading'
 import { jumpToCourseDetail } from '@/mixins'
 Vue.use(Cell)
@@ -120,7 +120,87 @@ export default {
       error: false, // 是否请求失败
       isEmpty: false, // 是否接口空数据
       refreshing: false, // 是否下拉刷新
-      page: 0 // 当前页
+      page: 0, // 当前页
+      health: {
+        'code': 200,
+        'msg': '正常返回',
+        'data': {
+          'data': [
+            {
+              'courseId': 'health1',
+              'courseName': '第一集 聊聊健康的“元点”',
+              'coursePrice': 0,
+              'payNum': 100,
+              'startTime': null,
+              'releaseTime': '2020-01-11',
+              'classHour': 14,
+              'courseLabel': '养生',
+              'courseBasicIntroduction': '健康养生课',
+              'courseSpecificIntroduction': null,
+              'courseImgUrl': '',
+              'teacherId': 'a4855b3b-8050-4931-ba43-2438c105971e',
+              'teacherName': '测试1',
+              'teacherIntroduction': null,
+              'videoUrl': 'https://all.bnuz.edu.cn/ComprehensiveSys/upload/works/partyService/第一集  聊聊健康的“元点”(1).mp4'
+            },
+            {
+              'courseId': 'health2',
+              'courseName': '第二集 啥是健康？您什么时候重视健康的？',
+              'coursePrice': 0,
+              'payNum': 100,
+              'startTime': null,
+              'releaseTime': '2020-02-08',
+              'classHour': 14,
+              'courseLabel': '养生',
+              'courseBasicIntroduction': '健康养生课',
+              'courseSpecificIntroduction': null,
+              'courseImgUrl': '',
+              'teacherId': 'a4855b3b-8050-4931-ba43-2438c105971e',
+              'teacherName': '测试1',
+              'teacherIntroduction': null,
+              'videoUrl': 'https://all.bnuz.edu.cn/ComprehensiveSys/upload/works/partyService/第二集 啥是健康？您什么时候重视健康的？.mp4'
+            },
+            {
+              'courseId': 'health3',
+              'courseName': '第三集 “天人合一”——古人诠释健康的真谛',
+              'coursePrice': 0,
+              'payNum': 100,
+              'startTime': null,
+              'releaseTime': '2020-02-08',
+              'classHour': 14,
+              'courseLabel': '养生',
+              'courseBasicIntroduction': '健康养生课',
+              'courseSpecificIntroduction': null,
+              'courseImgUrl': '',
+              'teacherId': 'a4855b3b-8050-4931-ba43-2438c105971e',
+              'teacherName': '测试1',
+              'teacherIntroduction': null,
+              'videoUrl': 'https://all.bnuz.edu.cn/ComprehensiveSys/upload/works/partyService/第三集 “天人合一”——古人诠释健康的真谛.mp4'
+            },
+            {
+              'courseId': 'health4',
+              'courseName': '第四集 闲话脏腑的关系',
+              'coursePrice': 0,
+              'payNum': 100,
+              'startTime': null,
+              'releaseTime': '2020-02-08',
+              'classHour': 14,
+              'courseLabel': '养生',
+              'courseBasicIntroduction': '健康养生课',
+              'courseSpecificIntroduction': null,
+              'courseImgUrl': '',
+              'teacherId': 'a4855b3b-8050-4931-ba43-2438c105971e',
+              'teacherName': '测试1',
+              'teacherIntroduction': null,
+              'videoUrl': 'https://all.bnuz.edu.cn/ComprehensiveSys/upload/works/partyService/第四集 闲话脏腑的关系.mp4'
+            }
+          ],
+          'count': 4,
+          'page': 1,
+          'pages': 1,
+          'totalCount': 4
+        }
+      }
     }
   },
   computed: {
@@ -214,8 +294,10 @@ export default {
             this.page++
             break
           case 3:
-            res = await getPaintingCourse(this.page, 6)
+            res = this.health
             this.page++
+            // res = await getPaintingCourse(this.page, 6)
+            // this.page++
             break
           case 4:
             res = await getMorePopularCourse(this.page, 6)

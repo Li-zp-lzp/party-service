@@ -1,8 +1,8 @@
 /*
 * @Author:庞泽邦
 * @Date:2020-05-03
- * @Last Modified by: 庞泽邦
- * @Last Modified time: 2020-11-14 18:31:03
+ * @Last Modified by: 吴晓斌
+ * @Last Modified time: 2021-01-13 16:56:55
 */
 <template>
   <div>
@@ -19,7 +19,7 @@
     </van-nav-bar>
     <van-skeleton title :row="18" :loading="loading">
       <div v-if="!isEmpty">
-        <course-detail-middle :course-info="courseInfo" />
+        <course-detail-middle :course-info="courseInfo" :video-url="video" />
         <van-tabs v-model="active" color="#A12831" swipe-threshold="5" animated>
           <van-tab title="课程介绍">
             <course-intro :course-intro-text="courseInfo.courseSpecificIntroduction" />
@@ -84,7 +84,288 @@ export default {
       courseList: [],
       commentList: [],
       isEmpty: false,
-      loading: true
+      loading: true,
+      health1: {
+        'code': 200,
+        'msg': '正常返回',
+        'data': {
+          'courseId': 'health1',
+          'courseName': '第一集 聊聊健康的“元点”',
+          'coursePrice': 0,
+          'payNum': 100,
+          'startTime': '2020-12-08 08:00:00',
+          'releaseTime': null,
+          'classHour': 1,
+          'courseLabel': '养生',
+          'courseBasicIntroduction': null,
+          'courseSpecificIntroduction': '第一集 聊聊健康的“元点”',
+          'videoUrl': 'https://all.bnuz.edu.cn/ComprehensiveSys/upload/works/partyService/第一集  聊聊健康的“元点”(1).mp4',
+          'teacherId': '2ffee950-9961-49c5-87fb-fed70651b544',
+          'teacherName': '测试',
+          'teacherIntroduction': '该教师是测试教师',
+          'contentDtoList': [
+            {
+              'id': 112,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2021-01-07 01:55:49',
+              'content': 'hhh'
+            },
+            {
+              'id': 111,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2020-12-21 11:44:05',
+              'content': '测试2'
+            },
+            {
+              'id': 110,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2020-12-21 11:40:46',
+              'content': '测试'
+            }
+          ],
+          'elderLessonDtoList': [
+            {
+              'sequenceId': '2',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '3',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '4',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '1',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            }
+          ],
+          'everPurchased': true
+        }
+      },
+      health2: {
+        'code': 200,
+        'msg': '正常返回',
+        'data': {
+          'courseId': '202009232314',
+          'courseName': '第二集 啥是健康？您什么时候重视健康的？',
+          'coursePrice': 0,
+          'payNum': 100,
+          'startTime': '2020-12-08 08:00:00',
+          'releaseTime': null,
+          'classHour': 1,
+          'courseLabel': '养生',
+          'courseBasicIntroduction': null,
+          'courseSpecificIntroduction': '第二集 啥是健康？您什么时候重视健康的？',
+          'videoUrl': 'https://all.bnuz.edu.cn/ComprehensiveSys/upload/works/partyService/第二集 啥是健康？您什么时候重视健康的？.mp4',
+          'teacherId': '2ffee950-9961-49c5-87fb-fed70651b544',
+          'teacherName': '测试',
+          'teacherIntroduction': '该教师是测试教师',
+          'contentDtoList': [
+            {
+              'id': 112,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2021-01-07 01:55:49',
+              'content': 'hhh'
+            },
+            {
+              'id': 111,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2020-12-21 11:44:05',
+              'content': '测试2'
+            },
+            {
+              'id': 110,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2020-12-21 11:40:46',
+              'content': '测试'
+            }
+          ],
+          'elderLessonDtoList': [
+            {
+              'sequenceId': '2',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '3',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '4',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '1',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            }
+          ],
+          'everPurchased': true
+        }
+      },
+      health3: {
+        'code': 200,
+        'msg': '正常返回',
+        'data': {
+          'courseId': '202009232314',
+          'courseName': '第三集 “天人合一”——古人诠释健康的真谛',
+          'coursePrice': 0,
+          'payNum': 100,
+          'startTime': '2020-12-08 08:00:00',
+          'releaseTime': null,
+          'classHour': 1,
+          'courseLabel': '养生',
+          'courseBasicIntroduction': null,
+          'courseSpecificIntroduction': '第三集 “天人合一”——古人诠释健康的真谛',
+          'videoUrl': 'https://all.bnuz.edu.cn/ComprehensiveSys/upload/works/partyService/第三集 “天人合一”——古人诠释健康的真谛.mp4',
+          'teacherId': '2ffee950-9961-49c5-87fb-fed70651b544',
+          'teacherName': '测试',
+          'teacherIntroduction': '该教师是测试教师',
+          'contentDtoList': [
+            {
+              'id': 112,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2021-01-07 01:55:49',
+              'content': 'hhh'
+            },
+            {
+              'id': 111,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2020-12-21 11:44:05',
+              'content': '测试2'
+            },
+            {
+              'id': 110,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2020-12-21 11:40:46',
+              'content': '测试'
+            }
+          ],
+          'elderLessonDtoList': [
+            {
+              'sequenceId': '2',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '3',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '4',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '1',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            }
+          ],
+          'everPurchased': true
+        }
+      },
+      health4: {
+        'code': 200,
+        'msg': '正常返回',
+        'data': {
+          'courseId': '202009232314',
+          'courseName': '第四集 闲话脏腑的关系',
+          'coursePrice': 0,
+          'payNum': 100,
+          'startTime': '2020-12-08 08:00:00',
+          'releaseTime': null,
+          'classHour': 1,
+          'courseLabel': '养生',
+          'courseBasicIntroduction': null,
+          'courseSpecificIntroduction': '第四集 闲话脏腑的关系',
+          'videoUrl': 'https://all.bnuz.edu.cn/ComprehensiveSys/upload/works/partyService/第四集 闲话脏腑的关系.mp4',
+          'teacherId': '2ffee950-9961-49c5-87fb-fed70651b544',
+          'teacherName': '测试',
+          'teacherIntroduction': '该教师是测试教师',
+          'contentDtoList': [
+            {
+              'id': 112,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2021-01-07 01:55:49',
+              'content': 'hhh'
+            },
+            {
+              'id': 111,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2020-12-21 11:44:05',
+              'content': '测试2'
+            },
+            {
+              'id': 110,
+              'picURL': null,
+              'name': 'X114',
+              'time': '2020-12-21 11:40:46',
+              'content': '测试'
+            }
+          ],
+          'elderLessonDtoList': [
+            {
+              'sequenceId': '2',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '3',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '4',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            },
+            {
+              'sequenceId': '1',
+              'courseId': '202009232314',
+              'lessonName': '测试1',
+              'lessonLength': null
+            }
+          ],
+          'everPurchased': true
+        }
+      },
+      video: ''
     }
   },
   created() {
@@ -100,7 +381,28 @@ export default {
     async getCourseDetail() {
       try {
         const courseId = this.$route.query.courseId || ''
-        const res = await getCourseDetail(courseId)
+        var res = {}
+        switch (courseId) {
+          case 'health1':
+            res = this.health1
+            this.video = this.health1.data.videoUrl
+            break
+          case 'health2':
+            res = this.health2
+            this.video = this.health2.data.videoUrl
+            break
+          case 'health3':
+            res = this.health3
+            this.video = this.health3.data.videoUrl
+            break
+          case 'health4':
+            res = this.health4
+            this.video = this.health4.data.videoUrl
+            break
+          default:
+            res = await getCourseDetail(courseId)
+            break
+        }
         if (!res.data) {
           this.isEmpty = true
         } else {

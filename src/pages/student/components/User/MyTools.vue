@@ -2,6 +2,14 @@
   <div class="tools_wrap--container">
     <div style="font-size: 12px;color: #676767;">我的工具</div>
     <van-grid :column-num="4" :border="false">
+      <van-grid-item @click.stop="changeView('/healthEvaluation')">
+        <template #icon>
+          <van-icon slot="icon" class-prefix="old-icon" name="copy" size="30" />
+        </template>
+        <template #text>
+          <div class="gird_item--text">健康测评</div>
+        </template>
+      </van-grid-item>
       <van-grid-item @click.stop="changeView('/askHealthy')">
         <template #icon>
           <van-icon slot="icon" class-prefix="old-icon" name="jiankang" size="30" />

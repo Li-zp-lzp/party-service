@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import {getToken} from '@/utils/auth'
-import {Toast} from 'vant'
+import { getToken } from '@/utils/auth'
+import { Toast } from 'vant'
 
 Vue.use(VueRouter)
 
@@ -122,6 +122,21 @@ const routes = [{
   path: '/askHealthy',
   name: 'askHealthy',
   component: () => import ('../views/AskHealthy/AskHealthy.vue')
+}, {
+  // 健康测评页面
+  path: '/healthEvaluation',
+  name: 'healthEvaluation',
+  component: () => import ('../views/HealthEvaluation/HealthEvaluation.vue')
+}, {
+  // 健康测评结果页面
+  path: '/healthEvaluationResult',
+  name: 'healthEvaluationResult',
+  component: () => import ('../views/HealthEvaluation/HealthEvaluationResult.vue')
+}, {
+  // 调养方案页面
+  path: '/recuperatePlan',
+  name: 'recuperatePlan',
+  component: () => import ('../views/HealthEvaluation/RecuperatePlan.vue')
 }, {
   // 个人设置页面
   path: '/settingCenter',
