@@ -10,12 +10,5 @@ export default (Vue) => {
         var vConsole = new VConsole();
 
     Vue.config.performance = true
-  } else if (process.env.NODE_ENV === 'production') {
-    Sentry.init({
-      dsn: 'https://561e6df3a06e469c917862108246f5bf@o397273.ingest.sentry.io/5251606',
-      integrations: [new VueIntegration({ Vue, attachProps: true })],
-      release: process.env.VUE_APP_RELEASE_VERSION,
-      logErrors: true
-    })
   }
 }
