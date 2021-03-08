@@ -2,7 +2,7 @@
  * @Author: 庞泽邦
  * @Date: 2020-05-01
  * @Last Modified by: 吴晓斌
- * @Last Modified time: 2021-01-13 11:07:09
+ * @Last Modified time: 2021-03-08 12:25:37
  */
 //学生端首页页面
 <template>
@@ -10,7 +10,7 @@
     <van-sticky class="van-sticky--fixed">
       <van-row class="home_header--container" type="flex" justify="center" align="center">
         <van-col span="8">
-          <div class="home_header--title">社区服务站</div>
+          <div class="home_header--title">社区+</div>
         </van-col>
         <van-col span="16">
           <div class="home_header--search">

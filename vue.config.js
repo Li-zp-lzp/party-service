@@ -56,14 +56,14 @@ const config = {
       entry: 'src/pages/student/main.js',
       template: 'src/pages/student/student.html',
       filename: 'index.html',
-      title: '社区服务站-学生端',
+      title: '社区+-学生端',
       chunks: ['chunk-vendors', 'chunk-common', 'runtime', 'student', 'chunk-libs', 'student~teacher']
     },
     teacher: {
       entry: 'src/pages/teacher/main.js',
       template: 'src/pages/teacher/teacher.html',
       filename: 'teacher.html',
-      title: '社区服务站-教师端',
+      title: '社区+-教师端',
       chunks: ['chunk-vendors', 'chunk-common', 'runtime', 'teacher', 'chunk-libs', 'student~teacher']
     }
   },

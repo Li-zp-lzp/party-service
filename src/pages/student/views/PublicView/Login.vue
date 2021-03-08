@@ -2,7 +2,7 @@
  * @Author: 庞泽邦
  * @Date: 2020-05-01
  * @Last Modified by: 吴晓斌
- * @Last Modified time: 2021-01-06 15:32:14
+ * @Last Modified time: 2021-03-08 12:27:03
  */
 //学生端登陆页面
 <template>
@@ -26,7 +26,7 @@
       </template>
     </van-nav-bar>
     <van-row type="flex" justify="center" align="center" class="row_title--container">
-      <van-col class="row_title--text">社区服务站</van-col>
+      <van-col class="row_title--text">社区+</van-col>
     </van-row>
     <div class="input_container">
       <van-row type="flex" justify="center" align="center">
