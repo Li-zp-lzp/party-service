@@ -2,7 +2,7 @@
 * @Author:吴晓斌
 * @Date:2021-01-13
  * @Last Modified by: 吴晓斌
- * @Last Modified time: 2021-01-13 18:59:32
+ * @Last Modified time: 2021-04-22 11:23:28
 */
 //健康测评结果页面
 <template>

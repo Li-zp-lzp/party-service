@@ -2,7 +2,7 @@
 * @Author:吴晓斌
 * @Date:2021-01-13
  * @Last Modified by: 吴晓斌
- * @Last Modified time: 2021-01-13 18:59:32
+ * @Last Modified time: 2021-04-22 11:19:27
 */
 //健康测评页面
 <template>
@@ -19,9 +19,15 @@
       </template>
     </van-nav-bar>
     <div class="tips">请按照您最近30天的身体情况选择</div>
-    <van-form input-align="right" label-width="180px" @submit="onSubmit">
+    <van-form
+      input-align="right"
+      label-width="180px"
+      scroll-to-error="true"
+      validate-trigger="onSubmit"
+      @submit="onSubmit"
+    >
       <div class="label-text">性别选择</div>
-      <van-field name="sex" label="请选择您的性别">
+      <van-field name="sex" label="请选择您的性别" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
         <template #input>
           <van-radio-group v-model="sex" direction="horizontal">
             <van-radio name="man" checked-color="#A12831">男</van-radio>
@@ -31,7 +37,7 @@
       </van-field>
       <div class="label-text">平和体质测试</div>
       <div v-for="(item, index) in pinghe" :key="index">
-        <van-field :name="item.name" :label="`${index+1}.${item.label}`">
+        <van-field :name="item.name" :label="`${index+1}.${item.label}`" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
           <template #input>
             <van-radio-group v-model="item.value" direction="horizontal">
               <van-radio name="1" checked-color="#A12831">是</van-radio>
@@ -42,7 +48,7 @@
       </div>
       <div class="label-text">气虚体质测试</div>
       <div v-for="(item, index) in qixu" :key="index">
-        <van-field :name="item.name" :label="`${index+1}.${item.label}`">
+        <van-field :name="item.name" :label="`${index+1}.${item.label}`" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
           <template #input>
             <van-radio-group v-model="item.value" direction="horizontal">
               <van-radio name="1" checked-color="#A12831">是</van-radio>
@@ -53,7 +59,7 @@
       </div>
       <div class="label-text">阳虚体质测试</div>
       <div v-for="(item, index) in yangxu" :key="index">
-        <van-field :name="item.name" :label="`${index+1}.${item.label}`">
+        <van-field :name="item.name" :label="`${index+1}.${item.label}`" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
           <template #input>
             <van-radio-group v-model="item.value" direction="horizontal">
               <van-radio name="1" checked-color="#A12831">是</van-radio>
@@ -64,7 +70,7 @@
       </div>
       <div class="label-text">阴虚体质测试</div>
       <div v-for="(item, index) in yinxu" :key="index">
-        <van-field :name="item.name" :label="`${index+1}.${item.label}`">
+        <van-field :name="item.name" :label="`${index+1}.${item.label}`" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
           <template #input>
             <van-radio-group v-model="item.value" direction="horizontal">
               <van-radio name="1" checked-color="#A12831">是</van-radio>
@@ -75,7 +81,7 @@
       </div>
       <div class="label-text">气郁体质测试</div>
       <div v-for="(item, index) in qiyu" :key="index">
-        <van-field :name="item.name" :label="`${index+1}.${item.label}`">
+        <van-field :name="item.name" :label="`${index+1}.${item.label}`" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
           <template #input>
             <van-radio-group v-model="item.value" direction="horizontal">
               <van-radio name="1" checked-color="#A12831">是</van-radio>
@@ -86,7 +92,7 @@
       </div>
       <div class="label-text">痰湿体质测试</div>
       <div v-for="(item, index) in tanshi" :key="index">
-        <van-field :name="item.name" :label="`${index+1}.${item.label}`">
+        <van-field :name="item.name" :label="`${index+1}.${item.label}`" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
           <template #input>
             <van-radio-group v-model="item.value" direction="horizontal">
               <van-radio name="1" checked-color="#A12831">是</van-radio>
@@ -97,7 +103,7 @@
       </div>
       <div class="label-text">湿热体质测试</div>
       <div v-for="(item, index) in shire" :key="index">
-        <van-field :name="item.name" :label="`${index+1}.${item.label}`">
+        <van-field :name="item.name" :label="`${index+1}.${item.label}`" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
           <template #input>
             <van-radio-group v-model="item.value" direction="horizontal">
               <van-radio name="1" checked-color="#A12831">是</van-radio>
@@ -108,7 +114,7 @@
       </div>
       <div class="label-text">血瘀体质测试</div>
       <div v-for="(item, index) in xueyu" :key="index">
-        <van-field :name="item.name" :label="`${index+1}.${item.label}`">
+        <van-field :name="item.name" :label="`${index+1}.${item.label}`" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
           <template #input>
             <van-radio-group v-model="item.value" direction="horizontal">
               <van-radio name="1" checked-color="#A12831">是</van-radio>
@@ -119,7 +125,7 @@
       </div>
       <div class="label-text">特禀体质测试</div>
       <div v-for="(item, index) in tebing" :key="index">
-        <van-field :name="item.name" :label="`${index+1}.${item.label}`">
+        <van-field :name="item.name" :label="`${index+1}.${item.label}`" required="true" :rules="[{ validator, message: '请您选择其中一项~' }]">
           <template #input>
             <van-radio-group v-model="item.value" direction="horizontal">
               <van-radio name="1" checked-color="#A12831">是</van-radio>
@@ -476,6 +482,9 @@ export default {
     }
   },
   methods: {
+    validator(val) { // 单选框验证
+      return !!val.length
+    },
     clickLeft() {
       this.$router.go(-1)
     },

@@ -211,6 +211,21 @@ const routes = [{
   name: 'homesearch',
   component: () => import ('../views/Search/HomeSearch.vue')
 }, {
+  // 社区公告页面
+  path: '/communityNotice',
+  name: 'communityNotice',
+  component: () => import ('../views/CommunityNotice/index.vue')
+}, {
+  // 便民号码页面
+  path: '/convenientNumber',
+  name: 'convenientNumber',
+  component: () => import ('../views/ConvenientNumber/index.vue')
+}, {
+  // 常用查询页面
+  path: '/practicalQuery',
+  name: 'practicalQuery',
+  component: () => import ('../views/PracticalQuery/index.vue')
+}, {
   // 404错误页面
   // 所有业务路由必须放置在该路由之上
   path: '*',
@@ -228,7 +243,7 @@ const router = createRouter()
 
 router.beforeEach((to, from, next) => {
   // 前往登录页自己就放行
-  const routerCsp = ['/old/', '/login', '/register', '/forget', '/home', '/select', '/activity', '/courseDetail', '/activityDetail', '/homesearch', '/searchResult']
+  const routerCsp = ['/old/', '/login', '/register', '/forget', '/home', '/select', '/activity', '/courseDetail', '/activityDetail', '/homesearch', '/searchResult', '/communityNotice', '/convenientNumber', '/practicalQuery']
   if (routerCsp.includes(to.path)) {
     // 路由白名单直接放行
     next()
