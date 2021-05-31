@@ -2,7 +2,7 @@
  * @Author: 吴晓斌
  * @Date: 2020-01-04 15:04:27
  * @Last Modified by: 吴晓斌
- * @Last Modified time: 2021-01-05 09:21:59
+ * @Last Modified time: 2021-04-22 10:13:15
  */
 //学生端首页社区服务组件
 <template>
@@ -18,31 +18,31 @@
     </van-cell>
     <div class="home_gird--container">
       <van-grid :column-num="5" class="home_gird--item">
-        <van-grid-item>
+        <van-grid-item :to="{path:'/communityNotice'}">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#old-icon-bianpinghuatubiaosheji-3" />
           </svg>
           <div class="home_gird--font">社区公告</div>
         </van-grid-item>
-        <van-grid-item>
+        <van-grid-item :to="{path:'/feedback'}">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#old-icon-bianpinghuatubiaosheji-4" />
           </svg>
           <div class="home_gird--font">意见反馈</div>
         </van-grid-item>
-        <van-grid-item>
+        <van-grid-item :to="{path:'/convenientNumber'}">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#old-icon-bianpinghuatubiaosheji-1" />
           </svg>
           <div class="home_gird--font">便民号码</div>
         </van-grid-item>
-        <van-grid-item>
+        <van-grid-item :to="{path:'/practicalQuery'}">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#old-icon-bianpinghuatubiaosheji-" />
           </svg>
           <div class="home_gird--font">常用查询</div>
         </van-grid-item>
-        <van-grid-item>
+        <van-grid-item :to="{path:'/activity'}">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#old-icon-bianpinghuatubiaosheji-2" />
           </svg>
